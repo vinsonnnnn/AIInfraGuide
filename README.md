@@ -232,7 +232,19 @@ AIInfraGuide 正是为了解决这些问题而创建的——一个**开源、�
 | 5.4 | [收益边界与限制](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第5章-speculative-decoding/54-收益边界与限制/) | 提交长度与轮耗时账本、并发、长上下文、量化与调度 |
 | 5.5 | [vLLM 投机解码实战](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第5章-speculative-decoding/55-vllm投机解码实战/) | 固定版本的基线/N-gram/Draft 对照、代码与对话指标采集 |
 | 第 6 章 | 分布式推理与大模型部署 | 张量并行、流水线并行、数据/专家并行、Ray 多节点、vLLM 分布式部署 |
+| 6.1 | [推理并行策略总览](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第6章-分布式推理/61-推理并行策略总览/) | 从容量、延迟和吞吐出发比较 TP、PP、DP、EP，建立权重、KV Cache、通信与 GPU 数量的部署账本 |
+| 6.2 | [张量并行推理](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第6章-分布式推理/62-张量并行推理/) | 推导 Column/Row Parallel 的前向、MLP 与 Attention 的切分，分析 AllReduce、KV Head 复制和 TP 的延迟收益边界 |
+| 6.3 | [流水线并行推理](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第6章-分布式推理/63-流水线并行推理/) | 理解推理 PP 的层切分、阶段依赖、Micro-batch 与自回归反馈，推导理想气泡并分析 TP×PP 的拓扑映射 |
+| 6.4 | [数据并行与专家并行](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第6章-分布式推理/64-数据并行与专家并行/) | 区分独立 Dense 副本与 MoE 的 DP+EP，理解 All-to-All 路由、专家热点、KV 感知负载均衡与 EPLB |
+| 6.5 | [多节点部署与 Ray](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第6章-分布式推理/65-多节点部署与ray/) | 理解 Ray Head、Worker、Actor 与 Placement Group，搭建两节点 TP×PP 部署并按环境、放置、集合通信和服务四层排错 |
+| 6.6 | [vLLM 分布式部署实战](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第6章-分布式推理/66-vllm分布式部署实战/) | 固定 vLLM 版本与模型，建立单卡、两卡 TP/PP/DP 和 Ray 多节点的对照流程，核对显存、吞吐、尾延迟与质量 |
 | 第 7 章 | PD 解耦架构 | 混合 Batching 干扰、DistServe/Splitwise、KV Cache 传输、Goodput 与 SLO 调度 |
+| 7.1 | [混合 Batching 与 P/D 互扰](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第7章-pd解耦架构/71-混合batching与pd互扰/) | 从迭代时间线区分 Prefill/Decode 的资源竞争、排队、TPOT 与 ITL，用可运行模型理解 Chunked Prefill 与 P/D 解耦的取舍 |
+| 7.2 | [解耦架构设计](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第7章-pd解耦架构/72-解耦架构设计/) | 沿请求和 KV 的生命周期比较 DistServe、Splitwise、TaiChi 与 MLC Microserving，理解解耦的资源、路由和故障边界 |
+| 7.3 | [KV Cache 传输与 Connector](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第7章-pd解耦架构/73-kvcache传输与connector/) | 核算 KV 载荷与带宽下界，理解 vLLM V1 Connector 的 Scheduler/Worker 分工、NIXL/NCCL 和缓存移交的正确性与失败处理 |
+| 7.4 | [Goodput 与 SLO 感知调度](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第7章-pd解耦架构/74-goodput与slo感知调度/) | 定义请求级 TTFT/TPOT 与联合达标 Goodput，区分分位数和逐请求判断，讨论准入、期限与长度预测及失败统计 |
+| 7.5 | [资源配比与调度挑战](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第7章-pd解耦架构/75-资源配比与调度挑战/) | 用服务需求和排队余量推导 P/D 初始配比，区分实例数与 GPU 数，加入网络、KV 驻留、背压和动态流量约束 |
+| 7.6 | [vLLM P/D 解耦实战](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第7章-pd解耦架构/76-vllm-pd解耦实战/) | 按 vLLM v0.19.0 配置双 GPU NixlConnector 与官方代理，生成混合负载并比较聚合、双副本和解耦的互扰、Goodput 与质量 |
 | 第 8 章 | 性能分析与 Benchmark | 推理指标体系、vllm bench/GenAI-Perf、Nsight、性能回归门禁 |
 | 第 9 章 | 生产部署与运维 | 容器化与 K8s 部署、可观测性、自动扩缩容、负载均衡、容量规划 |
 | 第 10 章 | 端侧推理 | 端侧软硬件栈、异构执行、运行时选型、量化、内存优化与 Benchmark |
