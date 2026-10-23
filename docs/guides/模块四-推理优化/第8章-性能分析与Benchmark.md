@@ -1,10 +1,24 @@
 ---
-title: "第9章：性能分析与 Benchmark"
+title: "第8章：性能分析与 Benchmark"
 description: "建立完整的推理性能指标体系，掌握 vllm bench、GenAI-Perf 等压测工具和性能分析工具，制定性能回归门禁"
 pubDate: 2026-04-16
+updatedDate: 2026-10-23
 category: "inference-optimization"
-order: 38
+order: 37
 tags: ["性能分析", "Benchmark", "vLLM Bench", "GenAI-Perf", "性能回归"]
+---
+
+## 📑 目录
+
+- [本章简介](#本章简介)
+- [新手学习路线](#新手学习路线)
+  - [从用户的一句“慢”开始](#从用户的一句慢开始)
+  - [先完成一个可解释的小实验](#先完成一个可解释的小实验)
+- [本章小节](#本章小节)
+- [总结](#-总结)
+- [自我检验清单](#-自我检验清单)
+- [参考资料](#-参考资料)
+
 ---
 
 ## 本章简介
@@ -21,12 +35,53 @@ tags: ["性能分析", "Benchmark", "vLLM Bench", "GenAI-Perf", "性能回归"]
 
 **性能回归门禁**制定规则（如 TPOT P95 退化 > 5% 则 Block Merge）、CI 自动化集成和退化定位方法（git bisect + Nsight 对比）。
 
-**动手实验**：用 `vllm bench serve` 输出完整指标报告，模拟性能退化并用 Nsight Systems 定位。
+**动手实验**贯穿各节：先手算请求指标，再运行固定负载；用 CPU 算子实验认识 Profiler，用人工退化摘要验证门禁，具备 GPU 环境后再采集真实 vLLM 与 Nsight 时间线。教学数字和 GPU 实测分开记录。
+
+## 新手学习路线
+
+### 从用户的一句“慢”开始
+
+先分清首字慢、后续暂停、总任务慢和接不住流量，再选择指标与工具。Token、Prefill/Decode、KV Cache、TP/PP/DP 等基础概念见前面章节；本章从这些机制回到“怎样证明优化有效”。
+
+| 小节 | 学完能回答 | 第一次可以做什么 |
+|------|------------|------------------|
+| 8.1 指标 | 首字、出字、吞吐和 Goodput 分别是什么 | 看自制时间线，手算四条请求 |
+| 8.2 压测 | 离线成绩与在线体验有何不同 | 写配置卡，分终端运行小规模对照 |
+| 8.3 定位 | 时间花在计算、通信还是等待 | CPU 上导出算子 Trace，再学 GPU 工具 |
+| 8.4 基准 | 公开结果在什么条件下可比较 | 给两条成绩填完整结果卡 |
+| 8.5 门禁 | 一次变慢怎样被发现与定位 | 运行 PASS/FAIL/REVIEW 教学比较器 |
+
+### 先完成一个可解释的小实验
+
+本章 vLLM 命令以 v0.19.0 为接口基线，使用 Linux Bash。先固定模型与 Tokenizer 快照、精度、长度、并发/到达率、缓存和质量，再改一个因素；需要 GPU、Profiler 或额外工具的步骤都有相应前置条件。
+
+没有 GPU 时也能学习指标、结果卡、门禁和 CPU 算子分析。真实设备成绩、Prometheus 查询与集群验证要在目标环境完成，不能把代码语法通过写成性能结论。
 
 ## 本章小节
 
-- **9.1 推理指标体系**：QPS、TTFT、TPOT、Throughput、显存与利用率的关联
-- **9.2 压测工具**：vllm bench、GenAI-Perf、可复现的压测配置
-- **9.3 性能分析工具**：torch.profiler、Nsight Systems/Compute
-- **9.4 权威基准**：MLPerf Inference 与评测趋势
-- **9.5 性能回归门禁**：门禁规则、CI 集成、退化定位
+- [**8.1 推理指标体系：从用户等多久，到一张卡能服务多少人**](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第8章-性能分析与benchmark/81-推理指标体系/)：用请求时间线和可手算记录解释 TTFT、TPOT、ITL、吞吐与 Goodput，区分客户端体验、服务端指标、显存与 GPU 利用率
+- [**8.2 压测工具与可复现实验：先测同一道题，再比较谁更快**](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第8章-性能分析与benchmark/82-压测工具与可复现实验/)：区分离线延迟、离线吞吐与在线服务压测，逐步运行 vLLM 对照，理解并发、到达率、预热、GenAI-Perf 和实验配置记录
+- [**8.3 性能分析工具：先看整条时间线，再钻进一个算子**](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第8章-性能分析与benchmark/83-性能分析工具与定位流程/)：以可运行的 torch.profiler 小实验认识 CPU/GPU 时间，再用 Nsight Systems、Nsight Compute 和 vLLM 短窗口采样逐层定位瓶颈
+- [**8.4 权威基准与结果解读：排行榜上的高分，怎样变成自己的判断**](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第8章-性能分析与benchmark/84-权威基准与结果解读/)：认识 MLPerf Inference 的场景、质量与提交约束，区分 LLMPerf 工具与正式基准，用结果卡避免跨模型、预算和指标口径误比
+- [**8.5 性能回归门禁：让一次变慢有证据，也有处理流程**](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第8章-性能分析与benchmark/85-性能回归门禁与退化定位/)：用可运行的摘要比较器理解性能门禁，固定实验身份、质量与样本要求，区分通过、退化和证据不足，再连接 CI 与 git bisect 定位
+
+## 📝 总结
+
+- 从计时边界、样本和窗口开始，统一指标口径。
+- 压测测结果，Profiler 查原因，正式基准提供共同规则。
+- 工作量、质量与资源不一致时，不能只按一个吞吐数字排名。
+- 性能门禁依赖受控环境、原始证据与可重复的好坏判定。
+
+## 🎯 自我检验清单
+
+- 能画出请求从发出、首输出到完成的计时路径
+- 能区分在线/离线工具与客户端/服务端计时
+- 能从队列和时间线解释一次慢，而不只说 GPU 忙
+- 能核对公开成绩的任务、质量、场景、资源和单位
+- 能设计带质量、失败、波动和证据不足处理的性能门禁
+
+## 📚 参考资料
+
+- [vLLM v0.19.0 — Benchmark Serve](https://github.com/vllm-project/vllm/blob/v0.19.0/vllm/benchmarks/serve.py)
+- [vLLM v0.19.0 — Profiling](https://github.com/vllm-project/vllm/blob/v0.19.0/docs/contributing/profiling.md)
+- [MLCommons — Inference Policies](https://github.com/mlcommons/inference_policies)

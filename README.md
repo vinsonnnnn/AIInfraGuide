@@ -246,7 +246,16 @@ AIInfraGuide 正是为了解决这些问题而创建的——一个**开源、�
 | 7.5 | [资源配比与调度挑战](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第7章-pd解耦架构/75-资源配比与调度挑战/) | 用服务需求和排队余量推导 P/D 初始配比，区分实例数与 GPU 数，加入网络、KV 驻留、背压和动态流量约束 |
 | 7.6 | [vLLM P/D 解耦实战](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第7章-pd解耦架构/76-vllm-pd解耦实战/) | 按 vLLM v0.19.0 配置双 GPU NixlConnector 与官方代理，生成混合负载并比较聚合、双副本和解耦的互扰、Goodput 与质量 |
 | 第 8 章 | 性能分析与 Benchmark | 推理指标体系、vllm bench/GenAI-Perf、Nsight、性能回归门禁 |
+| 8.1 | [推理指标体系：从用户等多久，到一张卡能服务多少人](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第8章-性能分析与benchmark/81-推理指标体系/) | 用请求时间线和可手算记录解释 TTFT、TPOT、ITL、吞吐与 Goodput，区分客户端体验、服务端指标、显存与 GPU 利用率 |
+| 8.2 | [压测工具与可复现实验：先测同一道题，再比较谁更快](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第8章-性能分析与benchmark/82-压测工具与可复现实验/) | 区分离线延迟、离线吞吐与在线服务压测，逐步运行 vLLM 对照，理解并发、到达率、预热、GenAI-Perf 和实验配置记录 |
+| 8.3 | [性能分析工具：先看整条时间线，再钻进一个算子](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第8章-性能分析与benchmark/83-性能分析工具与定位流程/) | 以可运行的 torch.profiler 小实验认识 CPU/GPU 时间，再用 Nsight Systems、Nsight Compute 和 vLLM 短窗口采样逐层定位瓶颈 |
+| 8.4 | [权威基准与结果解读：排行榜上的高分，怎样变成自己的判断](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第8章-性能分析与benchmark/84-权威基准与结果解读/) | 认识 MLPerf Inference 的场景、质量与提交约束，区分 LLMPerf 工具与正式基准，用结果卡避免跨模型、预算和指标口径误比 |
+| 8.5 | [性能回归门禁：让一次变慢有证据，也有处理流程](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第8章-性能分析与benchmark/85-性能回归门禁与退化定位/) | 用可运行的摘要比较器理解性能门禁，固定实验身份、质量与样本要求，区分通过、退化和证据不足，再连接 CI 与 git bisect 定位 |
 | 第 9 章 | 生产部署与运维 | 容器化与 K8s 部署、可观测性、自动扩缩容、负载均衡、容量规划 |
+| 9.1 | [容器化与 Kubernetes 部署：从一个进程，到可以验收的服务](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第9章-生产部署与运维/91-容器化与kubernetes部署/) | 用单 GPU vLLM 示例解释镜像、模型快照、Pod、Deployment、Service、GPU 调度和三类探针，给出完整实验清单并衔接生产部署框架 |
+| 9.2 | [可观测性与告警：把用户说的慢，连到队列、缓存和日志](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第9章-生产部署与运维/92-可观测性与告警/) | 从 Prometheus 抓取开始解释 Counter、Gauge、Histogram，核对 vLLM v0.19.0 指标与 PromQL，设计 Grafana 看板、结构化日志和可行动告警 |
+| 9.3 | [自动扩缩容与负载均衡：把请求送对，也让新副本来得及帮忙](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第9章-生产部署与运维/93-自动扩缩容与负载均衡/) | 区分网关、Router 和 HPA，用排队与前缀复用例子解释路由，给出有前置条件的自定义指标 HPA，并讲清冷启动、排空、认证与隔离 |
+| 9.4 | [容量规划与成本账本：从服务目标反推副本，再检查每一种约束](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第9章-生产部署与运维/94-容量规划与成本账本/) | 用完整手算与 CPU 规划例子，从峰值流量和单副本 SLO 能力推导规模，并核对 KV、故障域、冷启动、发布余量与 GPU 小时 |
 | 第 10 章 | 端侧推理 | 端侧软硬件栈、异构执行、运行时选型、量化、内存优化与 Benchmark |
 | 10.1 | [端侧推理基础：从模型导出到异构硬件执行](https://caomaolufei.github.io/AIInfraGuide/inference/模块四-推理优化/第12章-端侧推理/121-端侧推理基础/) | 端侧约束、软硬件栈、运行时选型、量化与内存优化、Benchmark，以及 ExecuTorch/XNNPACK 最小实例 |
 
