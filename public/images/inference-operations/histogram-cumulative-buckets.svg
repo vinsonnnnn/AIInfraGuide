@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="885" viewBox="0 0 1200 885" role="img" aria-labelledby="title desc">
+<title id="title">9.2 累计桶像套在一起的盒子，不能相加当总人数</title>
+<desc id="desc">五次观测0.1、0.2、0.4、0.8、1.2秒。在上界0.2、0.5、1、2与正无穷的累计计数分别2、3、4、5、5，总观测数为5。</desc>
+<defs>
+<marker id="a2563eb" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#2563eb"/>
+</marker>
+<marker id="a087f67" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#087f67"/>
+</marker>
+<marker id="ab45309" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#b45309"/>
+</marker>
+<marker id="ab42338" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#b42338"/>
+</marker>
+<marker id="a7048b8" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#7048b8"/>
+</marker>
+<marker id="a64748b" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#64748b"/>
+</marker>
+</defs>
+<rect width="1200" height="885" rx="24" fill="#ffffff"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif">
+<text x="48" y="65" font-size="34" fill="#172b4d" font-weight="700" text-anchor="start">9.2 累计桶像套在一起的盒子，不能相加当总人数</text>
+<text x="48" y="112" font-size="25" fill="#172b4d" font-weight="400" text-anchor="start">假设观测到 5 个 TTFT：0.1、0.2、0.4、0.8、1.2 秒</text>
+<text x="48" y="153" font-size="24" fill="#172b4d" font-weight="400" text-anchor="start">le 表示“小于等于”；条形长度表示累计观测数，不是独立区间人数</text>
+<text x="72" y="242" font-size="26" fill="#172b4d" font-weight="700" text-anchor="start">le = 0.2</text>
+<rect x="335" y="208" width="270" height="48" rx="5" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="625" y="242" font-size="25" fill="#2563eb" font-weight="700" text-anchor="start">2 个</text>
+<text x="72" y="328" font-size="26" fill="#172b4d" font-weight="700" text-anchor="start">le = 0.5</text>
+<rect x="335" y="294" width="405" height="48" rx="5" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="760" y="328" font-size="25" fill="#2563eb" font-weight="700" text-anchor="start">3 个</text>
+<text x="72" y="414" font-size="26" fill="#172b4d" font-weight="700" text-anchor="start">le = 1.0</text>
+<rect x="335" y="380" width="540" height="48" rx="5" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="895" y="414" font-size="25" fill="#2563eb" font-weight="700" text-anchor="start">4 个</text>
+<text x="72" y="500" font-size="26" fill="#172b4d" font-weight="700" text-anchor="start">le = 2.0</text>
+<rect x="335" y="466" width="675" height="48" rx="5" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="1030" y="500" font-size="25" fill="#2563eb" font-weight="700" text-anchor="start">5 个</text>
+<text x="72" y="586" font-size="26" fill="#172b4d" font-weight="700" text-anchor="start">le = +Inf</text>
+<rect x="335" y="552" width="675" height="48" rx="5" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="1030" y="586" font-size="25" fill="#2563eb" font-weight="700" text-anchor="start">5 个</text>
+<rect x="48" y="668" width="1104" height="121" rx="16" fill="#fffbeb" stroke="#fcd34d" stroke-width="2"/>
+<text x="72" y="712" font-size="27" fill="#b45309" font-weight="700" text-anchor="start">总观测数 = _count = 5，不是 2 + 3 + 4 + 5 + 5 = 19。</text>
+<text x="72" y="757" font-size="25" fill="#172b4d" font-weight="400" text-anchor="start">0.4 秒这次观测，同时计入 le=0.5、1.0、2.0 和 +Inf。</text>
+<text x="48" y="839" font-size="24" fill="#172b4d" font-weight="400" text-anchor="start">原始五个值已知，才知道具体耗时；仅保留桶时，P95 需要按桶作估计。</text>
+</g>
+</svg>

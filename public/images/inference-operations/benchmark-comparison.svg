@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="885" viewBox="0 0 1200 885" role="img" aria-labelledby="title desc">
+<title id="title">8.4 一张成绩卡，分开看总成绩与单位资源成绩</title>
+<desc id="desc">方案A两张GPU总产出400，每卡200；方案B四张GPU总产出600，每卡150。若总产出要求500，A当前规模不够。</desc>
+<defs>
+<marker id="a2563eb" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#2563eb"/>
+</marker>
+<marker id="a087f67" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#087f67"/>
+</marker>
+<marker id="ab45309" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#b45309"/>
+</marker>
+<marker id="ab42338" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#b42338"/>
+</marker>
+<marker id="a7048b8" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#7048b8"/>
+</marker>
+<marker id="a64748b" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#64748b"/>
+</marker>
+</defs>
+<rect width="1200" height="885" rx="24" fill="#ffffff"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif">
+<text x="48" y="65" font-size="34" fill="#172b4d" font-weight="700" text-anchor="start">8.4 一张成绩卡，分开看总成绩与单位资源成绩</text>
+<text x="48" y="112" font-size="25" fill="#172b4d" font-weight="400" text-anchor="start">前提：同任务、同质量、同口径、同类 GPU；数字是教学假设</text>
+<rect x="48" y="170" width="1104" height="200" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+<text x="72" y="215" font-size="29" fill="#2563eb" font-weight="700" text-anchor="start">方案 A</text>
+<rect x="225" y="190" width="84" height="45" rx="7" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="267" y="220" font-size="20" fill="#ffffff" font-weight="700" text-anchor="middle">GPU</text>
+<rect x="325" y="190" width="84" height="45" rx="7" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="367" y="220" font-size="20" fill="#ffffff" font-weight="700" text-anchor="middle">GPU</text>
+<text x="72" y="273" font-size="25" fill="#172b4d" font-weight="400" text-anchor="start">总产出</text>
+<rect x="225" y="247" width="420.0" height="48" rx="5" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="665.0" y="279" font-size="25" fill="#2563eb" font-weight="700" text-anchor="start">400 输出 Token/s</text>
+<text x="72" y="338" font-size="27" fill="#2563eb" font-weight="700" text-anchor="start">每卡产出：400 / 2 = 200 输出 Token/s/GPU</text>
+<rect x="48" y="405" width="1104" height="200" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+<text x="72" y="450" font-size="29" fill="#087f67" font-weight="700" text-anchor="start">方案 B</text>
+<rect x="225" y="425" width="84" height="45" rx="7" fill="#087f67" stroke="#ffffff" stroke-width="2"/>
+<text x="267" y="455" font-size="20" fill="#ffffff" font-weight="700" text-anchor="middle">GPU</text>
+<rect x="325" y="425" width="84" height="45" rx="7" fill="#087f67" stroke="#ffffff" stroke-width="2"/>
+<text x="367" y="455" font-size="20" fill="#ffffff" font-weight="700" text-anchor="middle">GPU</text>
+<rect x="425" y="425" width="84" height="45" rx="7" fill="#087f67" stroke="#ffffff" stroke-width="2"/>
+<text x="467" y="455" font-size="20" fill="#ffffff" font-weight="700" text-anchor="middle">GPU</text>
+<rect x="525" y="425" width="84" height="45" rx="7" fill="#087f67" stroke="#ffffff" stroke-width="2"/>
+<text x="567" y="455" font-size="20" fill="#ffffff" font-weight="700" text-anchor="middle">GPU</text>
+<text x="72" y="508" font-size="25" fill="#172b4d" font-weight="400" text-anchor="start">总产出</text>
+<rect x="225" y="482" width="630.0" height="48" rx="5" fill="#087f67" stroke="#ffffff" stroke-width="2"/>
+<text x="875.0" y="514" font-size="25" fill="#087f67" font-weight="700" text-anchor="start">600 输出 Token/s</text>
+<text x="72" y="573" font-size="27" fill="#087f67" font-weight="700" text-anchor="start">每卡产出：600 / 4 = 150 输出 Token/s/GPU</text>
+<rect x="48" y="656" width="1104" height="135" rx="16" fill="#fffbeb" stroke="#fcd34d" stroke-width="2"/>
+<text x="72" y="701" font-size="27" fill="#b45309" font-weight="700" text-anchor="start">B 总产出更高；A 每卡产出更高。要先确定自己优化什么。</text>
+<text x="72" y="746" font-size="25" fill="#172b4d" font-weight="400" text-anchor="start">若要求总产出 ≥ 500 Token/s，A 的当前规模未满足这一项要求。</text>
+<text x="48" y="842" font-size="23" fill="#172b4d" font-weight="400" text-anchor="start">换成不同 GPU、不同场景或不同质量时，要重新对齐条件，不能照此直接排名。</text>
+</g>
+</svg>

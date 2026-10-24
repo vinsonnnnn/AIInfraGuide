@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="870" viewBox="0 0 1200 870" role="img" aria-labelledby="title desc">
+<title id="title">8.2 并发名额与到达节奏，是两个不同的旋钮</title>
+<desc id="desc">闭环在完成后补发，服务越慢补发越慢；到达流可独立持续到来。在理想流量4每秒、完成2每秒、10秒无拒绝模型下净积压20条。</desc>
+<defs>
+<marker id="a2563eb" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#2563eb"/>
+</marker>
+<marker id="a087f67" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#087f67"/>
+</marker>
+<marker id="ab45309" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#b45309"/>
+</marker>
+<marker id="ab42338" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#b42338"/>
+</marker>
+<marker id="a7048b8" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#7048b8"/>
+</marker>
+<marker id="a64748b" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#64748b"/>
+</marker>
+</defs>
+<rect width="1200" height="870" rx="24" fill="#ffffff"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif">
+<text x="48" y="65" font-size="34" fill="#172b4d" font-weight="700" text-anchor="start">8.2 并发名额与到达节奏，是两个不同的旋钮</text>
+<text x="48" y="112" font-size="25" fill="#172b4d" font-weight="400" text-anchor="start">两种发流方式都可用于实验，但回答的问题不同</text>
+<rect x="48" y="150" width="1104" height="280" rx="16" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+<text x="72" y="191" font-size="28" fill="#2563eb" font-weight="700" text-anchor="start">① 闭环：先占住有限名额，完成一条再补一条</text>
+<rect x="80" y="229" width="300" height="126" rx="16" fill="#ffffff" stroke="#93c5fd" stroke-width="2"/>
+<text x="230" y="273" font-size="25" fill="#172b4d" font-weight="400" text-anchor="middle">客户端：并发上限 2</text>
+<text x="230" y="317" font-size="25" fill="#172b4d" font-weight="400" text-anchor="middle">已有 2 条未完成</text>
+<rect x="820" y="229" width="280" height="126" rx="16" fill="#ffffff" stroke="#93c5fd" stroke-width="2"/>
+<text x="960" y="273" font-size="28" fill="#172b4d" font-weight="700" text-anchor="middle">被测服务</text>
+<text x="960" y="317" font-size="23" fill="#172b4d" font-weight="400" text-anchor="middle">慢了就更晚释放名额</text>
+<path d="M 380 260 H 820" fill="none" stroke="#2563eb" stroke-width="4"  marker-end="url(#a2563eb)"/>
+<text x="600" y="244" font-size="24" fill="#2563eb" font-weight="400" text-anchor="middle">有名额才发请求</text>
+<path d="M 820 328 H 380" fill="none" stroke="#2563eb" stroke-width="4"  marker-end="url(#a2563eb)"/>
+<text x="600" y="368" font-size="24" fill="#2563eb" font-weight="400" text-anchor="middle">收到完成，再补发</text>
+<text x="72" y="407" font-size="25" fill="#172b4d" font-weight="400" text-anchor="start">服务变慢 → 补发变慢；压力源会受完成速度影响。</text>
+<rect x="48" y="470" width="1104" height="300" rx="16" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="2"/>
+<text x="72" y="512" font-size="28" fill="#087f67" font-weight="700" text-anchor="start">② 按到达节奏发流：外界继续来，队列可能增长</text>
+<rect x="80" y="560" width="270" height="115" rx="16" fill="#ffffff" stroke="#6ee7b7" stroke-width="2"/>
+<text x="215.0" y="603" font-size="27" fill="#172b4d" font-weight="700" text-anchor="middle">计划到达</text>
+<text x="215.0" y="646" font-size="23" fill="#172b4d" font-weight="400" text-anchor="middle">例如每秒 4 条</text>
+<rect x="475" y="560" width="245" height="115" rx="16" fill="#ffffff" stroke="#6ee7b7" stroke-width="2"/>
+<text x="597.5" y="603" font-size="27" fill="#172b4d" font-weight="700" text-anchor="middle">等待队列</text>
+<text x="597.5" y="646" font-size="23" fill="#172b4d" font-weight="400" text-anchor="middle">服务慢时可积压</text>
+<rect x="840" y="560" width="260" height="115" rx="16" fill="#ffffff" stroke="#6ee7b7" stroke-width="2"/>
+<text x="970.0" y="603" font-size="27" fill="#172b4d" font-weight="700" text-anchor="middle">被测服务</text>
+<text x="970.0" y="646" font-size="23" fill="#172b4d" font-weight="400" text-anchor="middle">例如每秒完成 2 条</text>
+<path d="M 350 612 H 475" fill="none" stroke="#087f67" stroke-width="4"  marker-end="url(#a087f67)"/>
+<path d="M 720 612 H 840" fill="none" stroke="#087f67" stroke-width="4"  marker-end="url(#a087f67)"/>
+<text x="72" y="727" font-size="25" fill="#172b4d" font-weight="400" text-anchor="start">理想化无拒绝、无取消：10 秒净积压约 (4 − 2) × 10 = 20 条。</text>
+<text x="48" y="825" font-size="23" fill="#172b4d" font-weight="400" text-anchor="start">仍须核对实际发送时刻：并发上限或客户端瓶颈也会阻止计划流量真正发出。</text>
+</g>
+</svg>

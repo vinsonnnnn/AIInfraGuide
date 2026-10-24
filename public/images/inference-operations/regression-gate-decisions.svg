@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="845" viewBox="0 0 1200 845" role="img" aria-labelledby="title desc">
+<title id="title">8.5 门禁的三种结论，各自对应不同下一步</title>
+<desc id="desc">基线40毫秒，相对教学阈值42。有效候选40通过，44退化失败；身份不一致或证据不足需复核，不能作为通过。</desc>
+<defs>
+<marker id="a2563eb" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#2563eb"/>
+</marker>
+<marker id="a087f67" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#087f67"/>
+</marker>
+<marker id="ab45309" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#b45309"/>
+</marker>
+<marker id="ab42338" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#b42338"/>
+</marker>
+<marker id="a7048b8" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#7048b8"/>
+</marker>
+<marker id="a64748b" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#64748b"/>
+</marker>
+</defs>
+<rect width="1200" height="845" rx="24" fill="#ffffff"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif">
+<text x="48" y="65" font-size="34" fill="#172b4d" font-weight="700" text-anchor="start">8.5 门禁的三种结论，各自对应不同下一步</text>
+<text x="48" y="112" font-size="24" fill="#172b4d" font-weight="400" text-anchor="start">先检查 case 与基线、轮次与样本，再检查候选质量、失败和性能</text>
+<rect x="48" y="157" width="1104" height="107" rx="16" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+<text x="72" y="199" font-size="27" fill="#2563eb" font-weight="700" text-anchor="start">教学规则：基线 TPOT P95 的多轮中位数为 40 ms</text>
+<text x="72" y="241" font-size="24" fill="#172b4d" font-weight="400" text-anchor="start">候选不能超过 40 × 1.05 = 42 ms；其他合同要求仍须逐项检查。</text>
+<path d="M 220 264 V 338" fill="none" stroke="#087f67" stroke-width="4"  marker-end="url(#a087f67)"/>
+<rect x="48" y="343" width="344" height="270" rx="16" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="2"/>
+<text x="220" y="391" font-size="32" fill="#087f67" font-weight="700" text-anchor="middle">PASS</text>
+<text x="220" y="446" font-size="23" fill="#087f67" font-weight="700" text-anchor="middle">候选 40 ms</text>
+<text x="220" y="501" font-size="23" fill="#172b4d" font-weight="400" text-anchor="middle">证据有效，合同通过</text>
+<text x="220" y="565" font-size="23" fill="#172b4d" font-weight="400" text-anchor="middle">允许进入后续发布检查</text>
+<path d="M 600 264 V 338" fill="none" stroke="#b42338" stroke-width="4"  marker-end="url(#ab42338)"/>
+<rect x="428" y="343" width="344" height="270" rx="16" fill="#fff7f7" stroke="#fecdd3" stroke-width="2"/>
+<text x="600" y="391" font-size="32" fill="#b42338" font-weight="700" text-anchor="middle">FAIL</text>
+<text x="600" y="446" font-size="23" fill="#b42338" font-weight="700" text-anchor="middle">候选 44 ms</text>
+<text x="600" y="501" font-size="23" fill="#172b4d" font-weight="400" text-anchor="middle">证据有效，发生退化</text>
+<text x="600" y="565" font-size="23" fill="#172b4d" font-weight="400" text-anchor="middle">保留证据，阻断并定位</text>
+<path d="M 980 264 V 338" fill="none" stroke="#b45309" stroke-width="4"  marker-end="url(#ab45309)"/>
+<rect x="808" y="343" width="344" height="270" rx="16" fill="#fffbeb" stroke="#fcd34d" stroke-width="2"/>
+<text x="980" y="391" font-size="32" fill="#b45309" font-weight="700" text-anchor="middle">REVIEW</text>
+<text x="980" y="446" font-size="23" fill="#b45309" font-weight="700" text-anchor="middle">case 不同 / 数据不足</text>
+<text x="980" y="501" font-size="23" fill="#172b4d" font-weight="400" text-anchor="middle">尚不能可靠比较</text>
+<text x="980" y="565" font-size="23" fill="#172b4d" font-weight="400" text-anchor="middle">补证据，不自动放行</text>
+<rect x="48" y="664" width="1104" height="135" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+<text x="72" y="709" font-size="25" fill="#172b4d" font-weight="700" text-anchor="start">“资料不足”不是“证明没退化”；“通过相对阈值”也不等于已达绝对 SLO。</text>
+<text x="72" y="754" font-size="24" fill="#172b4d" font-weight="400" text-anchor="start">图中 40 / 44 是多轮 P95 的中位数，不是合并所有请求后的全局 P95。</text>
+</g>
+</svg>

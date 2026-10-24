@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="795" viewBox="0 0 1200 795" role="img" aria-labelledby="title desc">
+<title id="title">8.1 P95 是排到哪里，不是把平均值乘 95%</title>
+<desc id="desc">20条请求排序，前18条20毫秒，第19条100毫秒，第20条200毫秒。nearest-rank的P95为100，P99为200，平均33。</desc>
+<defs>
+<marker id="a2563eb" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#2563eb"/>
+</marker>
+<marker id="a087f67" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#087f67"/>
+</marker>
+<marker id="ab45309" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#b45309"/>
+</marker>
+<marker id="ab42338" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#b42338"/>
+</marker>
+<marker id="a7048b8" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#7048b8"/>
+</marker>
+<marker id="a64748b" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M0 0 L12 6 L0 12 Z" fill="#64748b"/>
+</marker>
+</defs>
+<rect width="1200" height="795" rx="24" fill="#ffffff"/>
+<g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif">
+<text x="48" y="65" font-size="34" fill="#172b4d" font-weight="700" text-anchor="start">8.1 P95 是排到哪里，不是把平均值乘 95%</text>
+<text x="48" y="112" font-size="24" fill="#172b4d" font-weight="400" text-anchor="start">教学样本：20 条请求，先按耗时从小到大排列；采用 nearest-rank 方法</text>
+<text x="48" y="169" font-size="25" fill="#172b4d" font-weight="700" text-anchor="start">下面的数字是排序后的名次，不是请求到达顺序</text>
+<rect x="50" y="205" width="50" height="64" rx="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="75" y="247" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">1</text>
+<rect x="105" y="205" width="50" height="64" rx="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="130" y="247" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">2</text>
+<rect x="160" y="205" width="50" height="64" rx="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="185" y="247" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">3</text>
+<rect x="215" y="205" width="50" height="64" rx="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="240" y="247" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">4</text>
+<rect x="270" y="205" width="50" height="64" rx="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="295" y="247" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">5</text>
+<rect x="325" y="205" width="50" height="64" rx="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="350" y="247" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">6</text>
+<rect x="380" y="205" width="50" height="64" rx="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="405" y="247" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">7</text>
+<rect x="435" y="205" width="50" height="64" rx="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="460" y="247" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">8</text>
+<rect x="490" y="205" width="50" height="64" rx="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="515" y="247" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">9</text>
+<rect x="545" y="205" width="50" height="64" rx="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="570" y="247" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">10</text>
+<rect x="600" y="205" width="50" height="64" rx="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="625" y="247" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">11</text>
+<rect x="655" y="205" width="50" height="64" rx="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="680" y="247" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">12</text>
+<rect x="710" y="205" width="50" height="64" rx="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="735" y="247" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">13</text>
+<rect x="765" y="205" width="50" height="64" rx="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="790" y="247" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">14</text>
+<rect x="820" y="205" width="50" height="64" rx="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="845" y="247" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">15</text>
+<rect x="875" y="205" width="50" height="64" rx="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="900" y="247" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">16</text>
+<rect x="930" y="205" width="50" height="64" rx="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="955" y="247" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">17</text>
+<rect x="985" y="205" width="50" height="64" rx="6" fill="#2563eb" stroke="#ffffff" stroke-width="2"/>
+<text x="1010" y="247" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">18</text>
+<rect x="1040" y="205" width="50" height="64" rx="6" fill="#b45309" stroke="#ffffff" stroke-width="2"/>
+<text x="1065" y="247" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">19</text>
+<rect x="1095" y="205" width="50" height="64" rx="6" fill="#b42338" stroke="#ffffff" stroke-width="2"/>
+<text x="1120" y="247" font-size="22" fill="#ffffff" font-weight="700" text-anchor="middle">20</text>
+<text x="545" y="315" font-size="25" fill="#2563eb" font-weight="400" text-anchor="middle">第 1～18 名：每条 20 ms</text>
+<path d="M 1067 271 V 344 H 850 V 370" fill="none" stroke="#b45309" stroke-width="4"  marker-end="url(#ab45309)"/>
+<text x="1040" y="337" font-size="23" fill="#b45309" font-weight="400" text-anchor="end">第 19 名</text>
+<path d="M 1122 271 V 465 H 1040 V 520 H 968" fill="none" stroke="#b42338" stroke-width="4"  marker-end="url(#ab42338)"/>
+<text x="1100" y="431" font-size="23" fill="#b42338" font-weight="400" text-anchor="end">第 20 名</text>
+<rect x="48" y="375" width="920" height="80" rx="16" fill="#fffbeb" stroke="#fcd34d" stroke-width="2"/>
+<text x="72" y="426" font-size="28" fill="#b45309" font-weight="700" text-anchor="start">P95：ceil(0.95 × 20) = 19 → 100 ms</text>
+<rect x="48" y="480" width="920" height="80" rx="16" fill="#fff7f7" stroke="#fecdd3" stroke-width="2"/>
+<text x="72" y="531" font-size="28" fill="#b42338" font-weight="700" text-anchor="start">P99：ceil(0.99 × 20) = 20 → 200 ms</text>
+<rect x="48" y="600" width="1104" height="112" rx="16" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+<text x="72" y="644" font-size="27" fill="#2563eb" font-weight="700" text-anchor="start">平均值 = (18 × 20 + 100 + 200) / 20 = 33 ms</text>
+<text x="72" y="686" font-size="24" fill="#172b4d" font-weight="400" text-anchor="start">平均 33 ms、P95 100 ms、最慢 200 ms，描述的是不同位置。</text>
+<text x="48" y="754" font-size="23" fill="#172b4d" font-weight="400" text-anchor="start">只用于理解排序；20 条样本不足以稳定代表生产长尾，工具也可能采用插值。</text>
+</g>
+</svg>
